@@ -224,14 +224,20 @@ NSString *const BPLinkStyleAttributeName = @"NSLinkAttributeName";
 - (void)renderCodeSpanElement:(BPElement *)element
                      toTarget:(NSMutableAttributedString *)target
 {
-    [self renderSpanElement:element withFont:[_displaySettings monospaceFont] toTarget:target];
+	NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+	attributes[NSBackgroundColorAttributeName] = [_displaySettings codeBackgroundColor];
+
+    [self renderSpanElement:element
+				   withFont:[_displaySettings monospaceFont]
+				 attributes:attributes
+				   toTarget:target];
 }
 
 - (void)renderLinkElement:(BPElement *)element
                  toTarget:(NSMutableAttributedString *)target
 {
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-    attributes[NSUnderlineStyleAttributeName] = @(NSUnderlineStyleSingle);
+	attributes[NSUnderlineStyleAttributeName] = @(_displaySettings.linkStyle);
     attributes[NSForegroundColorAttributeName] = [_displaySettings linkColor];
     attributes[BPLinkStyleAttributeName] = element[@"link"];
     [self renderSpanElement:element
@@ -273,6 +279,7 @@ NSString *const BPLinkStyleAttributeName = @"NSLinkAttributeName";
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     attributes[NSFontAttributeName] = [_displaySettings monospaceFont];
     attributes[NSForegroundColorAttributeName] = [_displaySettings codeColor];
+    attributes[NSBackgroundColorAttributeName] = [_displaySettings codeBackgroundColor];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setParagraphSpacing:[_displaySettings paragraphSpacingCode]];
@@ -326,18 +333,18 @@ NSString *const BPLinkStyleAttributeName = @"NSLinkAttributeName";
     
     switch (level % 3) {
         case 1:
-            bulletColor = [UIColor grayColor];
+			bulletColor = _displaySettings.bulletLevel1Color;
             break;
         case 2:
-            bulletColor = [UIColor lightGrayColor];
+            bulletColor = _displaySettings.bulletLevel2Color;
             break;
         default:
-            bulletColor = [UIColor blackColor];
+            bulletColor = _displaySettings.bulletLevel3Color;
             break;
     }
     
     NSDictionary *bulletAttributes = @{
-        NSFontAttributeName            : [_displaySettings monospaceFont],
+        NSFontAttributeName            : [_displaySettings bulletFont],
         NSForegroundColorAttributeName : bulletColor
     };
     

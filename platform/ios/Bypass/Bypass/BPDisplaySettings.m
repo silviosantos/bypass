@@ -24,6 +24,7 @@
     self.italicFont = [UIFont italicSystemFontOfSize:systemFontSize];
     self.monospaceFont = [UIFont fontWithName:@"Courier" size:systemFontSize - 2.f];
     self.quoteFont = [UIFont fontWithName:@"Marion-Italic" size:systemFontSize - 2.f];
+	self.bulletFont = [UIFont fontWithName:@"Courier" size:systemFontSize - 2.f];
     self.h1Font = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:systemFontSize * 2.f];
     self.h2Font = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:systemFontSize * 1.8f];
     self.h3Font = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:systemFontSize * 1.6f];
@@ -34,7 +35,14 @@
     self.defaultColor = [UIColor blackColor];
     self.quoteColor = [UIColor darkGrayColor];
     self.codeColor = [UIColor grayColor];
+	self.codeBackgroundColor = [UIColor clearColor];
     self.linkColor = [UIColor blueColor];
+	self.bulletLevel1Color = [UIColor grayColor];
+	self.bulletLevel2Color = [UIColor lightGrayColor];
+	self.bulletLevel3Color = [UIColor blackColor];
+
+	self.linkStyle = NSUnderlineStyleSingle;
+
     self.bulletIndentation = 13.0f;
     self.codeIndentation = 10.0f;
     self.quoteIndentation = 23.0f;

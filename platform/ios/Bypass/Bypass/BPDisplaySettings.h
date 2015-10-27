@@ -14,7 +14,11 @@
 @property(nonatomic) UIColor *defaultColor;
 @property(nonatomic) UIColor *quoteColor;
 @property(nonatomic) UIColor *codeColor;
+@property(nonatomic) UIColor *codeBackgroundColor;
 @property(nonatomic) UIColor *linkColor;
+@property(nonatomic) UIColor *bulletLevel1Color;
+@property(nonatomic) UIColor *bulletLevel2Color;
+@property(nonatomic) UIColor *bulletLevel3Color;
 
 @property(nonatomic) UIFont *defaultFont;
 @property(nonatomic) UIFont *boldFont;
@@ -22,12 +26,15 @@
 @property(nonatomic) UIFont *boldItalicFont;
 @property(nonatomic) UIFont *monospaceFont;
 @property(nonatomic) UIFont *quoteFont;
+@property(nonatomic) UIFont *bulletFont;
 @property(nonatomic) UIFont *h1Font;
 @property(nonatomic) UIFont *h2Font;
 @property(nonatomic) UIFont *h3Font;
 @property(nonatomic) UIFont *h4Font;
 @property(nonatomic) UIFont *h5Font;
 @property(nonatomic) UIFont *h6Font;
+
+@property(nonatomic) NSUnderlineStyle linkStyle;
 
 @property(nonatomic) CGFloat bulletIndentation;
 @property(nonatomic) CGFloat codeIndentation;

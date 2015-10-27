@@ -318,7 +318,7 @@ NSString *const BPLinkStyleAttributeName = @"NSLinkAttributeName";
                      toTarget:(NSMutableAttributedString *)target
 {
     NSUInteger level = 0;
-    BPElement *inspectedElement = [[element parentElement] parentElement];
+    BPElement *inspectedElement = [element parentElement];
     NSMutableString *indentation = [NSMutableString  string];
     
     while ([inspectedElement elementType] == BPList

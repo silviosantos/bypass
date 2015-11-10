@@ -241,7 +241,7 @@ NSString *const BPLinkStyleAttributeName = @"NSLinkAttributeName";
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
 	attributes[NSUnderlineStyleAttributeName] = @(_displaySettings.linkStyle);
     attributes[NSForegroundColorAttributeName] = [_displaySettings linkColor];
-    attributes[BPLinkStyleAttributeName] = element[@"link"];
+    attributes[NSLinkAttributeName] = element[@"link"];
     [self renderSpanElement:element
                    withFont:[_displaySettings defaultFont]
                  attributes:attributes

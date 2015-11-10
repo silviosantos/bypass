@@ -166,6 +166,10 @@ NSString *const BPLinkStyleAttributeName = @"NSLinkAttributeName";
   }
   
     attributes[NSFontAttributeName] = font;
+
+	if ([attributes objectForKey:NSForegroundColorAttributeName] == nil) {
+		attributes[NSForegroundColorAttributeName] = _displaySettings.defaultColor;
+	}
     
     NSString *text;
     
